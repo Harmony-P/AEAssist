@@ -3,6 +3,8 @@ using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Objects;
 using System.Threading.Tasks;
+using Common.Logging.Configuration;
+using ff14bot.Managers;
 
 namespace AEAssist.AI.Samurai.Ability
 {
@@ -10,33 +12,78 @@ namespace AEAssist.AI.Samurai.Ability
     {
         public int Check(SpellEntity lastSpell)
         {
+            if (!SpellsDefine.HissatsuKaiten.IsUnlock())
+            {
+                return -20;
+            }
+
+            if (Core.Me.HasMyAura(AurasDefine.Kaiten) || SpellsDefine.HissatsuKaiten.RecentlyUsed())
+            {
+                return -10;
+            }
+            
+            if (ActionResourceManager.Samurai.Kenki < 20)
+            {
+                return -1;
+            }
+
+            if (MovementManager.IsMoving)
+            {
+                return -2;
+            }
+
+            if (!AIRoot.Instance.Is2ndAbilityTime())
+            {
+                return -3;
+            }
+
+            if (SamuraiSpellHelper.SenCounts() == 1 &&
+                SamuraiSpellHelper.TargetNeedsDot())
+            {
+                    return 0;
+            }
+
             if (SamuraiSpellHelper.SenCounts() == 3)
             {
-                return 0;
+                    return 1;
             }
-            var bd = AIRoot.GetBattleData<SamuraiBattleData>();
-
-            if (bd.CurrPhase == SamuraiPhase.OddMinutesBurstPhase)
+            
+            //AOE
+            if (SamuraiSpellHelper.SenCounts() == 2)
             {
-                if (SamuraiSpellHelper.SenCounts() == 1)
+                if (TargetHelper.CheckNeedUseAOEByMe(5, 5, 3))
                 {
-                    var target = Core.Me.CurrentTarget as Character;
-                    if (!target.HasMyAuraWithTimeleft(10000))
-                    {
-                        return 1;
-                    }
-                }
-                if (bd.CurrPhase == SamuraiPhase.OddMinutesBurstPhase)
-                {
-                    if (!SamuraiSpellHelper.TargetNeedsDot(Core.Me.CurrentTarget as Character))
-                    {
-                        if (SamuraiSpellHelper.SenCounts() == 1)
-                        {
-                            return 0;
-                        }
-                    }
+                    return 2;
                 }
             }
+            
+            // if (SamuraiSpellHelper.SenCounts() == 2)
+            // {
+            //     if (!ActionResourceManager.Samurai.Sen.HasFlag(ActionResourceManager.Samurai.Iaijutsu.Ka))
+            //     {
+            //         if (ActionManager.LastSpellId == SpellsDefine.Kasha ||
+            //             ActionManager.LastSpellId == SpellsDefine.Oka)
+            //         {
+            //             return 2;
+            //         }
+            //     }
+            //     if (!ActionResourceManager.Samurai.Sen.HasFlag(ActionResourceManager.Samurai.Iaijutsu.Getsu))
+            //     {
+            //         if (ActionManager.LastSpellId == SpellsDefine.Gekko ||
+            //             ActionManager.LastSpellId == SpellsDefine.Mangetsu)
+            //         {
+            //             return 2;
+            //         }
+            //     }
+            //     if (!ActionResourceManager.Samurai.Sen.HasFlag(ActionResourceManager.Samurai.Iaijutsu.Setsu))
+            //     {
+            //         if (ActionManager.LastSpellId == SpellsDefine.Yukikaze)
+            //         {
+            //             return 2;
+            //         }
+            //     }
+            // }
+
             return -1;
         }
 

@@ -93,6 +93,7 @@
   "Toggle_UseEnshroud": "使用附体",
   "Toggle_AutoFinalBurst": "自动开资源倾泻(6秒)",
   "Toggle_UseMeikyoShisui": "明镜止水",
+  "Toggle_DynamicRotation": "动态身位",
   "Combox_Hotkey_EnAvant": "(舞者)前冲步",
   "Textbox_BardApexWaitBuffs": "绝峰强制进团辅",
   "ToolTip_Bard_FinalBurst": "目标是Boss,或者木人,而且即将在6秒内死亡,那么诗心1层就用,绝峰大于20就打.\n这个选项默认自动在目标6秒内死亡时激活",
@@ -108,7 +109,10 @@
   "ToolTip_MCH_FinalBurst": "目标是Boss,或者木人,而且即将在6秒内死亡,那么野火会尽快炸.机器人也会尽快用掉\n这个选项默认自动在目标6秒内死亡时激活",
   "ToolTip_MCH_WildFireFirst": "正常情况下,野火会等待6秒内冷却好的3高威力GCD(钻头,电锯,空气猫),开启之后就不等了,防止延后.\n这个选项可以被设置为默认激活.在机工的职业设置里.",
   "ToolTip_MCH_Burst": "关闭后,不主动使用过热,机器人,野火",
-
+  
+  "Toggle_Flourish": "百花",
+  "Toggle_SaberDance": "剑舞",
+  
   "ToolTip_SMN_Burst": "关闭爆发, 不开龙神/不死鸟",
   "ToolTip_SMN_FinalBurst": "资源倾斜，目前没用",
   "Toggle_SMN_SaveInstantSpells": "保留瞬发技能",
@@ -128,12 +132,12 @@
   "Toggle_GNB_Open": "起手远程/突进",
   "Toggle_GNB_RoughDivide": "保留一层突进",
 
-  "WarriorDefenseMode": "自动防御"
-  "WarriorOnslaught": "猛攻"
-  "WarriorInnerRelease": "原初的解放"
-  "WarriorPrimalRend": "蛮荒崩裂"
+  "WarriorDefenseMode": "自动防御",
+  "WarriorOnslaught": "猛攻",
+  "WarriorInnerRelease": "原初的解放",
+  "WarriorPrimalRend": "蛮荒崩裂",
   
-  "Engagement": "交剑"
-  "Fleche": "飞刺"
+  "Engagement": "交剑",
+  "Fleche": "飞刺",
   "ContreSixte": "六分反击"
 }

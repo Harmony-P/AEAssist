@@ -32,6 +32,7 @@ namespace AEAssist
         public bool Move { get; set; }
 
         public bool Pull { get; set; }
+        public bool UseDotSAM { get; set; }
 
         public bool UseTrueNorth { get; set; }
 
@@ -120,6 +121,7 @@ namespace AEAssist
             UseEnshroud = true;
             FinalBurst = false;
             UseMeikyoShisui = true;
+            DynamicRotation = true;
             SageSettings.LucidDreamingToggle = true;
             Wildfire = true;
             SMNSettings.ResetToggles();
@@ -168,7 +170,8 @@ namespace AEAssist
         #region Samurai
 
         public bool UseMeikyoShisui { get; set; } = true;
-
+        public bool DynamicRotation { get; set; } = true;
+        
         #endregion
 
         #region Dancer

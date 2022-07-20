@@ -102,6 +102,7 @@
   "TabItem_TriggerLine": "TriggerLine",
   "Toggle_AutoSwitchTriggerLine": "Auto switch",
   "Toggle_UseMeikyoShisui": "MeikyoShisui",
+  "Toggle_DynamicRotation": "DynamicPOS",
   "Combox_Hotkey_EnAvant": "(DNC)EnAvant",
   "Textbox_BardApexWaitBuffs": "Force Apex wait buffs",
   "Toggle_Heat": "Heat",
@@ -116,6 +117,9 @@
   "Toggle_GNBO_pen": "LightningShot/RoughDivide",
   "Toggle_GNB_RoughDivide": "Keep1RoughDivide",
 
+  "Toggle_Flourish": "Flourish",
+  "Toggle_SaberDance": "Saber Dance",
+  
   "ToolTip_SMN_Burst": "No aethercharge",
   "ToolTip_SMN_FinalBurst": "Not implemented",
   "Toggle_SMN_SaveInstantSpells": "Save Instant Spells",

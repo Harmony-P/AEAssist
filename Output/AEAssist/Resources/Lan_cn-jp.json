@@ -101,5 +101,7 @@
   "ToolTip_MCH_WildFireFirst": "正常情况下,野火会等待6秒内冷却好的3高威力GCD(钻头,电锯,空气猫),开启之后就不等了,防止延后.",
   "ToolTip_MCH_Burst": "关闭后,不主动使用过热,机器人,野火",
   "ToolTip_RPR_Burst": "关闭后,不主动使用附体,神秘环",
-  "ToolTip_RPR_DoubleEnshroundPrefer": "开启后,在资源满足时,会优先打双附体"
+  "ToolTip_RPR_DoubleEnshroundPrefer": "开启后,在资源满足时,会优先打双附体",
+  "Toggle_Flourish": "百花",
+  "Toggle_SaberDance": "剑舞"
 }

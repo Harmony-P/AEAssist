@@ -50,14 +50,14 @@
                                   IsChecked="{Binding Burst,Mode=TwoWay}" />
 
                         <CheckBox HorizontalContentAlignment="Center"
-                                  Content="AOE"
-                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
-                                  IsChecked="{Binding UseAOE,Mode=TwoWay}" />
-
-                        <CheckBox HorizontalContentAlignment="Center"
                                   Content="{Binding Language.Toggle_Potion}"
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
                                   IsChecked="{Binding GeneralSettings.UsePotion,Mode=TwoWay}" />
+                        
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="AOE"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding UseAOE,Mode=TwoWay}" />
 
                         <CheckBox HorizontalContentAlignment="Center"
                                   Content="{Binding Language.Toggle_ActiveAttack}"
@@ -73,6 +73,14 @@
                                   Content="{Binding Language.Toggle_UseMeikyoShisui}"
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
                                   IsChecked="{Binding UseMeikyoShisui,Mode=TwoWay}" />
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="{Binding Language.Toggle_DynamicRotation}"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding DynamicRotation,Mode=TwoWay}" />
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="Dot"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding UseDotSAM,Mode=TwoWay}" />
 
                     </WrapPanel>
                     <WrapPanel Margin="10">

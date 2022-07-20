@@ -93,6 +93,7 @@
   "Toggle_UseEnshroud": "使用附体",
   "Toggle_AutoFinalBurst": "自动开资源倾泻(6秒)",
   "Toggle_UseMeikyoShisui": "明镜止水",
+  "Toggle_DynamicRotation": "动态身位",
   "Combox_Hotkey_EnAvant": "(舞者)前冲步",
   "Textbox_BardApexWaitBuffs": "绝峰强制进团辅",
   "ToolTip_Bard_FinalBurst": "目标是Boss,或者木人,而且即将在6秒内死亡,那么诗心1层就用,绝峰大于20就打.\n这个选项默认自动在目标6秒内死亡时激活",

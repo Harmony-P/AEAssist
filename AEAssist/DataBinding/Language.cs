@@ -187,7 +187,13 @@ namespace AEAssist
         public string ToolTip_RPR_Burst { get; set; }
 
         #endregion
+        
+        #region SAM
 
+        public string Toggle_DynamicRotation { get; set; }
+
+        #endregion
+        
         #region SMN
         public string ToolTip_SMN_Burst { get; set; }
 
@@ -219,6 +225,7 @@ namespace AEAssist
         public string Toggle_GNB_Open { get; set; }
         public string Toggle_GNB_RoughDivide { get; set; }
         #endregion
+        
         #region Warrior
         public string WarriorDefenseMode { get; set; }
         public string WarriorOnslaught { get; set; }

@@ -98,8 +98,19 @@ namespace AEAssist.Define
             DemonSlaughter,
             Camouflage,
             Nebula,
-            Superbolide
+            Superbolide,
 
+            
+            
+            
+            //SAM
+            Oka,
+            Mangetsu,
+            HissatsuKyuten,
+            MeikyoShisui,
+            HissatsuKaiten,
+            Ikishoten,
+            
         };
 
         public static HashSet<uint> IgnoreEarlyDecisionSet = new HashSet<uint>

@@ -339,7 +339,10 @@ namespace AEAssist.Define
             //PLD
             Sheltron = 1856,
             HolySheltron = 2674,
-            KnightsResolve = 2675
+            KnightsResolve = 2675,
+            //SAM
+            Fuka = 1299,
+            Fugetsu = 1298
             ;
 
         private const int
