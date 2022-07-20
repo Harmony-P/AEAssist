@@ -240,6 +240,17 @@ namespace AEAssist
         public string ContreSixte { get; set; }
         #endregion
 
+        #region Dragoon
+        public string LifeSurge { get; set; }
+        public string LanceCharge { get; set; }
+        public string SpineshatterDive { get; set; }
+        public string DragonfireDive { get; set; }
+        public string BattleLitany { get; set; }
+        public string Jump { get; set; }
+        public string WyrmwindThrust { get; set; }
+        public string Geirskogul { get; set; }
+        #endregion
+
         #region Healer
 
         // Casters Roles Defaults
@@ -253,6 +264,7 @@ namespace AEAssist
 
         public string Lightspeed { get; set; }
         public string UseCDPull { get; set; }
+        public string GcdHeal { get; set; }
 
         #endregion
 
@@ -326,7 +338,7 @@ namespace AEAssist
         public string TextBox_Regen { get; set; }
         public string TextBox_AfflatusSolace { get; set; }
 
-
+        public string Textbox_Sch_DotTimeLeft { get; set; }
 
 
     }

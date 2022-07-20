@@ -15,7 +15,7 @@ namespace AEAssist.AI.Astrologian.Ability
             }
             
             if (!SpellsDefine.Synastry.IsReady()) return -1;
-            var skillTarget = GroupHelper.CastableAlliesWithin30.FirstOrDefault(r => r.CurrentHealth > 0 && r.CurrentHealthPercent <= 10f && r.IsTank());
+            var skillTarget = GroupHelper.CastableAlliesWithin30.FirstOrDefault(r => r.CurrentHealth > 0 && r.CurrentHealthPercent <= 20f && r.IsTank());
             if (skillTarget == null)
             {
                 return -2;
@@ -24,9 +24,11 @@ namespace AEAssist.AI.Astrologian.Ability
             return 0;
         }
 
-        public Task<SpellEntity> Run()
+        public async Task<SpellEntity> Run()
         {
-            return AstSpellHelper.CastSynastry();
+            var spell = SpellsDefine.Synastry.GetSpellEntity();
+            var ret = await AstSpellHelper.CastSynastry();
+            return ret ? spell : null;            
         }
     }
 }

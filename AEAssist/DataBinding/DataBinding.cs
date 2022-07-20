@@ -54,7 +54,7 @@ namespace AEAssist
         public MCHSettings MCHSettings => SettingMgr.GetSetting<MCHSettings>();
 
         public SamuraiSettings SamuraiSettings => SettingMgr.GetSetting<SamuraiSettings>();
-
+        public ScholarSettings SchSettings => SettingMgr.GetSetting<ScholarSettings>();
         public SageSettings SageSettings => SettingMgr.GetSetting<SageSettings>();
         public WhiteMageSettings WhiteMageSettings => SettingMgr.GetSetting<WhiteMageSettings>();
         public AstSettings AstSettings => SettingMgr.GetSetting<AstSettings>();
@@ -67,6 +67,7 @@ namespace AEAssist
         public MeleePosition MeleePosition => MeleePosition.Intance;
         public WarriorSettings WarriorSettings => SettingMgr.GetSetting<WarriorSettings>();
         public RedMageSettings RedMageSettings => SettingMgr.GetSetting<RedMageSettings>();
+        public DragoonSettings DragoonSettings => SettingMgr.GetSetting<DragoonSettings>();
 
         public HotkeySetting HotkeySetting => SettingMgr.GetSetting<HotkeySetting>();
         public AEAssist.View.Hotkey.HotkeyManager HotkeyManager => AEAssist.View.Hotkey.HotkeyManager.Instance;
@@ -192,6 +193,23 @@ namespace AEAssist
         public bool GNBOpen { get; set; } = true;
         public bool GNBRoughDivide { get; set; } = true;
         public bool GNBManualControl { get; set; } = false;
+
+        public float gnbdis;
+        private string gNBdisg;
+
+        public float Gnbdis
+        {
+            get
+            {
+                return gnbdis;
+            }
+            set
+            {
+                gnbdis = value;
+                LogHelper.Info($"{GNBdisg}");
+            }
+        }
+        public string GNBdisg { get => gNBdisg; set => gNBdisg = value; }
         #endregion
 
     }

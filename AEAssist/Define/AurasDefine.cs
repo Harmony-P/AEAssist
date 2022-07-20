@@ -342,7 +342,10 @@ namespace AEAssist.Define
             KnightsResolve = 2675,
             //SAM
             Fuka = 1299,
-            Fugetsu = 1298
+            Fugetsu = 1298,
+            //Dragoon
+            BloodoftheDragon=736,
+            LifeSurge=2175
             ;
 
         private const int
