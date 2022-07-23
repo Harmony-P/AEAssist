@@ -119,6 +119,11 @@ namespace AEAssist.AI.Samurai.GCD
                 {
                     return SamuraiSpellHelper.SetsuCombo();
                 }
+                
+                if (TargetHelper.CheckNeedUseAOETest(8, 8, 3) && SpellsDefine.Fuga.IsUnlock())
+                {
+                    return SamuraiSpellHelper.GetFuko();
+                }
 
                 return SpellsDefine.Hakaze.GetSpellEntity();
             }

@@ -17,6 +17,11 @@ namespace AEAssist.AI.Samurai.Ability
                 return -20;
             }
 
+            if (!AEAssist.DataBinding.Instance.UseMeikyoShisui)
+            {
+                return -20;
+            }
+
             if (Core.Me.ClassLevel < 88)
             {
                 if (SpellsDefine.MeikyoShisui.GetSpellEntity().SpellData.Cooldown.TotalMilliseconds > 0)
@@ -52,7 +57,7 @@ namespace AEAssist.AI.Samurai.Ability
                 else
                 {
                     //dot
-                    if (SamuraiSpellHelper.TargetNeedsDot())
+                    if (SamuraiSpellHelper.NeedsDot())
                     {
                         if (SamuraiSpellHelper.SenCounts() == 0 ||
                             SamuraiSpellHelper.SenCounts() == 3)

@@ -38,7 +38,7 @@ namespace AEAssist.AI.Samurai.Ability
             }
 
             if (SamuraiSpellHelper.SenCounts() == 1 &&
-                SamuraiSpellHelper.TargetNeedsDot())
+                SamuraiSpellHelper.NeedsDot())
             {
                     return 0;
             }

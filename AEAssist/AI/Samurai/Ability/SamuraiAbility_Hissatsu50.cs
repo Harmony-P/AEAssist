@@ -16,6 +16,11 @@ namespace AEAssist.AI.Samurai.Ability
                 return -10;
             }
 
+            if (!Core.Me.HasMyAura(AurasDefine.Fugetsu))
+            {
+                return -3;
+            }
+
             if (!SpellsDefine.HissatsuGuren.IsReady())
             {
                 return -5;

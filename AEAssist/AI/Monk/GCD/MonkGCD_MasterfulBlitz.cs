@@ -26,6 +26,13 @@ namespace AEAssist.AI.Monk.GCD
                 {
                     AIRoot.GetBattleData<MonkBattleData>().CurrentMonkNadiCombo = MonkNadiCombo.None;
                 }
+                if (ActionResourceManager.Monk.MastersGauge.Distinct().ToArray().Length == 1 && ActionResourceManager.Monk.BlitzTimer != TimeSpan.FromSeconds(3))
+                {
+                    if (!TargetHelper.CheckNeedUseAOEByMe(5, 5, 1))
+                    {
+                        return -1;
+                    }
+                }
                 return 0;
             }
             return -4;
@@ -36,7 +43,6 @@ namespace AEAssist.AI.Monk.GCD
             //真必杀
             if (ActionResourceManager.Monk.ActiveNadi == ActionResourceManager.Monk.Nadi.Both)
             {
-                //todo add another spell
                 //Phantom Rush 梦幻斗舞 Action Id:25769
                 if (SpellsDefine.PhantomRush.IsUnlock())
                 {

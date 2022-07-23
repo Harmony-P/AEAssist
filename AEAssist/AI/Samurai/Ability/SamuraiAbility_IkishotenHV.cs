@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AEAssist.AI.Samurai.Ability
 {
-    public class SamuraiAbility_Ikishoten : IAIHandler
+    public class SamuraiAbility_IkishotenHV : IAIHandler
     {
         public int Check(SpellEntity lastSpell)
         {

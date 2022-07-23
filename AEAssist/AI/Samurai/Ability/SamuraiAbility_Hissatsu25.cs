@@ -15,13 +15,18 @@ namespace AEAssist.AI.Samurai.Ability
             {
                 return -10;
             }
-
+            
+            if (!Core.Me.HasMyAura(AurasDefine.Fugetsu) && ActionResourceManager.Samurai.Kenki < 80)
+            {
+                return -3;
+            }
+            
             if (SpellsDefine.HissatsuShinten.RecentlyUsed() || SpellsDefine.HissatsuKyuten.RecentlyUsed())
             {
                 return -5;
             }
 
-            if (ActionResourceManager.Samurai.Kenki < 50)
+            if (ActionResourceManager.Samurai.Kenki < 45)
             {
                 return -1;
             }

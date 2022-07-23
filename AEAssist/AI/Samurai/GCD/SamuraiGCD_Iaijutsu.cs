@@ -38,7 +38,7 @@ namespace AEAssist.AI.Samurai.GCD
             //dot
             if (SamuraiSpellHelper.SenCounts() == 1)
             {
-                if (SamuraiSpellHelper.TargetNeedsDot())
+                if (SamuraiSpellHelper.NeedsDot())
                 {
                     return 1;
                 }

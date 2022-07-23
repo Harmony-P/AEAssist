@@ -45,9 +45,9 @@ namespace AEAssist.AI.Samurai
             //SAM -- Harmony Version
             new SamuraiAbility_Meikyo(),
             new SamuraiAbility_HissatsuKaiten(),
+            new SamuraiAbility_IkishotenHV(),
             new SamuraiAbility_Hissatsu50(),
             new SamuraiAbility_Hissatsu25(),
-            new SamuraiAbility_Ikishoten(),
             new SamuraiAbility_Shoha(),
             new SamuraiAbility_TrueNorth(),
             

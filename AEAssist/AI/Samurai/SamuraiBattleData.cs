@@ -32,6 +32,7 @@
         KaeshiNamikiri,
 
     }
+    
 
     public class SamuraiBattleData : IBattleData
     {
@@ -41,8 +42,9 @@
         public int MidareSetsugekkaCount = 0;
         public int higanBanaCount = 0;
         public long burstingMeikyoShisuiCount = 0;
-        
-        
+        public int KenkiSave = 25;
+
+
         public SamuraiComboStages CurrCombo = SamuraiComboStages.Hakaze;
         public SamuraiPhase CurrPhase = SamuraiPhase.CooldownPhase;
     }

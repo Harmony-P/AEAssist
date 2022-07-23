@@ -35,20 +35,22 @@ namespace AEAssist.AI.Sage.GCD
         }
         public int Check(SpellEntity lastSpell)
         {
-            var phlegmaCheck = SageSpellHelper.GetPhlegma();
-            if (phlegmaCheck == null) return -1;
-            if (!ActionManager.CanCastOrQueue(phlegmaCheck.SpellData, Core.Me.CurrentTarget))
+            if (!SpellsDefine.Phlegma.IsUnlock())
+            {
+                return -20;
+            }
+            if (!ActionManager.CanCastOrQueue(GetPhlegma().SpellData, Core.Me.CurrentTarget))
             {
                 LogHelper.Debug("Can't Cast Phlegma distance maybe too much?");
                 return -6;
             }
-            var phlegmaCharges = DataManager.GetSpellData(SpellsDefine.Phlegma).Charges;
-            var phlegmaChargesII = DataManager.GetSpellData(SpellsDefine.PhlegmaII).Charges;
-            var phlegmaChargesIII = DataManager.GetSpellData(SpellsDefine.PhlegmaIII).Charges;
 
-            LogHelper.Debug("Current Phlegma Charge is: " + phlegmaChargesIII);
+            var spell = GetPhlegma();
+            var charges = spell.SpellData.Charges;
+
+            LogHelper.Debug("Current Phlegma Charge is: " + charges);
             
-            if (phlegmaCharges == 0 || phlegmaChargesII == 0 || phlegmaChargesIII == 0)
+            if (charges == 0)
             {
                 LogHelper.Debug("Phlegma has 0 charges meaning is not ready so skip it.");
                 return -1;
@@ -60,7 +62,7 @@ namespace AEAssist.AI.Sage.GCD
             }
             // If we are not moving check how many charges left for phlegma; don't waste it keep it for movement.
             if (MovementManager.IsMoving) return 2;
-            if (SpellsDefine.PhlegmaIII.IsMaxChargeReady(0.3f))
+            if (spell.IsMaxChargeReady(0.3f))
             {
                 LogHelper.Debug("即将溢出");
                 return 3;
@@ -68,6 +70,30 @@ namespace AEAssist.AI.Sage.GCD
             //if (!(phlegmaCharges < 2) && !(phlegmaChargesII < 2) && !(phlegmaChargesIII < 2)) return 3;
             LogHelper.Debug("Not wasting Phlegma while standing still saving it for movement cast.");
             return -1;
+        }
+        private static SpellEntity GetPhlegma()
+        {
+            if (SpellsDefine.PhlegmaIII.IsUnlock())
+            {
+                if (!ActionManager.HasSpell(SpellsDefine.PhlegmaII))
+                {
+                    return null;
+                }
+
+                return SpellsDefine.PhlegmaIII.GetSpellEntity();
+            }
+            
+            if (SpellsDefine.PhlegmaII.IsUnlock())
+            {
+                if (!ActionManager.HasSpell(SpellsDefine.Phlegma))
+                {
+                    return null;
+                }
+
+                return SpellsDefine.PhlegmaII.GetSpellEntity();
+            }
+
+            return SpellsDefine.Phlegma.GetSpellEntity();
         }
 
         public async Task<SpellEntity> Run()
@@ -77,7 +103,7 @@ namespace AEAssist.AI.Sage.GCD
                 var aoeChecker = TargetHelper.CheckNeedUseAOE(12, 5, ConstValue.SageAOECount);
                 if (aoeChecker)
                 {
-                    var spellData = SageSpellHelper.GetPhlegma();
+                    var spellData = GetPhlegma();
                     if (spellData == null)
                     {
                         LogHelper.Error("Failed to get spell returning null;");
@@ -88,7 +114,7 @@ namespace AEAssist.AI.Sage.GCD
                 }
             }
 
-            var spell = SageSpellHelper.GetPhlegma();
+            var spell = GetPhlegma();
             if (spell == null) return null;
             var ret = await spell.DoGCD();
             return ret ? spell : null;

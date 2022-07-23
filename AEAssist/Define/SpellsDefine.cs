@@ -41,6 +41,8 @@ namespace AEAssist.Define
             
             //Sage
             Eukrasia,
+            Dyskrasia,
+            DyskrasiaII,
             
             
             //DNC

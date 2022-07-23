@@ -74,6 +74,46 @@ namespace AEAssist.AI.Monk.Ability
 
                 return -4;
             }
+            
+            if (!SpellsDefine.RiddleofFire.IsUnlock())
+            {
+                // dmg buff
+                if (Core.Me.HasMyAuraWithTimeleft(AurasDefine.DisciplinedFist, 9000))
+                {
+                    if (ActionResourceManager.Monk.ActiveNadi == ActionResourceManager.Monk.Nadi.Solar ||
+                        ActionResourceManager.Monk.ActiveNadi == ActionResourceManager.Monk.Nadi.Both)
+                    {
+                        AIRoot.GetBattleData<MonkBattleData>().CurrentMonkNadiCombo = MonkNadiCombo.Lunar;
+                    }
+                    else if (ActionResourceManager.Monk.ActiveNadi == ActionResourceManager.Monk.Nadi.Lunar)
+                    {
+                        AIRoot.GetBattleData<MonkBattleData>().CurrentMonkNadiCombo = MonkNadiCombo.Solar;
+                    }
+                    else if (ActionResourceManager.Monk.ActiveNadi == ActionResourceManager.Monk.Nadi.None)
+                    {
+                        if (MonkSpellHelper.UsingDot())
+                        {
+                            // dot timeleft safe
+                            if (target.HasMyAuraWithTimeleft(AurasDefine.Demolish, 9000))
+                            {
+                                AIRoot.GetBattleData<MonkBattleData>().CurrentMonkNadiCombo = MonkNadiCombo.Lunar;
+                            }
+                            else
+                            {
+                                AIRoot.GetBattleData<MonkBattleData>().CurrentMonkNadiCombo = MonkNadiCombo.Solar;
+                            }
+                        }
+                        else
+                        {
+                            AIRoot.GetBattleData<MonkBattleData>().CurrentMonkNadiCombo = MonkNadiCombo.Lunar;
+                        }
+
+                    }
+                    return 1;
+                }
+
+                return -4;
+            }
 
             //ROF + BH --- Even Window
             if (Core.Me.HasAura(AurasDefine.Brotherhood) || SpellsDefine.Brotherhood.CoolDownInGCDs(5) ||

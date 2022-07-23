@@ -1,4 +1,5 @@
 using System;
+using System.CodeDom;
 using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
@@ -16,11 +17,22 @@ namespace AEAssist.AI.Samurai.GCD
             {
                 return -10;
             }
-            
-            if (SpellsDefine.TsubameGaeshi.GetSpellEntity().SpellData.Cooldown > TimeSpan.FromSeconds(60))
+
+            if (Core.Me.ClassLevel < 84)
             {
-                return -20;
+                if (SpellsDefine.TsubameGaeshi.GetSpellEntity().SpellData.Cooldown > TimeSpan.Zero)
+                {
+                    return -20;
+                }
             }
+            else
+            {
+                if (SpellsDefine.TsubameGaeshi.GetSpellEntity().SpellData.Cooldown > TimeSpan.FromSeconds(60))
+                {
+                    return -20;
+                }
+            }
+
 
             var bdls = AIRoot.GetBattleData<BattleData>().lastGCDSpell;
 
